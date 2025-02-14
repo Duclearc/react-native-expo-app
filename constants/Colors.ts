@@ -1,26 +1,48 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
+import colors from "tailwindcss/colors";
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+const primary = colors.blue[500];
+const primaryDark = colors.blue[800];
+const onPrimary = colors.white;
+const tabTintColorLight = "#de5472";
+const tabTintColorDark = "#000";
 
-export const Colors = {
-  light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
-  },
-  dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+export const themeColors = {
+  itemBg: primary,
+  itemBgActive: primaryDark,
+  itemBgActiveAlt: colors.gray[300],
+  onItem: onPrimary,
+
+  itemBgDark: primary,
+  itemBgDarkActive: primary,
+  onItemDark: onPrimary,
+
+  textDefault: colors.black,
+  textOnDark: colors.white,
+
+  bgDefault: colors.white,
+  bgOnDark: colors.black,
+
+  borderDefault: colors.black,
+  borderOnDark: colors.white,
+
+  disabled: colors.gray[500],
+
+  tabBar: {
+    light: {
+      text: "#11181C",
+      background: "#fff",
+      tint: tabTintColorLight,
+      icon: "#687076",
+      tabIconDefault: "#687076",
+      tabIconSelected: tabTintColorLight,
+    },
+    dark: {
+      text: "#ECEDEE",
+      background: "#151718",
+      tint: tabTintColorDark,
+      icon: "#9BA1A6",
+      tabIconDefault: "#9BA1A6",
+      tabIconSelected: tabTintColorDark,
+    },
   },
 };
