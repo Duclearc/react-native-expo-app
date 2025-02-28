@@ -1,11 +1,15 @@
+import { ThemeToggle } from "@/components/ThemeToggle";
+import { TitleText } from "@/components/TitleText";
 import { Wrapper } from "@/components/Wrapper";
-import { classes } from "@/lib/constants";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
 export default function Settings() {
   return (
     <Wrapper>
-      <Text className={`${classes.title}`}>Settings</Text>
+      <TitleText>Settings</TitleText>
+      <View className="w-full">
+        <ThemeToggle />
+      </View>
     </Wrapper>
   );
 }

@@ -32,14 +32,16 @@ export const TaskItem = ({ task }: { task: Task }) => {
   };
 
   return (
-    <Card>
+    <Card className="bg-bgDefault dark:bg-bgOnDark">
       <View className="flex-row items-center pl-3 gap-1">
         <View className="flex-row gap-3 items-center">
           <Checkbox
             checked={isCompleted}
             onCheckedChange={onIsCompletedChange}
           />
-          <Text className="text-lg text-wrap w-10/12">{task.todo}</Text>
+          <Text className="text-lg text-wrap w-10/12 text-textDefault dark:text-textOnDark">
+            {task.todo}
+          </Text>
         </View>
         <Pressable
           onPress={onIsHighlightChange}
@@ -47,7 +49,7 @@ export const TaskItem = ({ task }: { task: Task }) => {
         >
           <Star
             className={`${
-              isHighlight ? "text-accent" : "text-disabled opacity-50"
+              isHighlight ? "text-accent" : "text-disabled light:opacity-50"
             }`}
             fill={isHighlight ? "#FF531CBB" : "#00000000"}
           />

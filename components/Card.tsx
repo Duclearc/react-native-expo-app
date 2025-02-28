@@ -1,17 +1,17 @@
+import { cn } from "@/lib/utils";
+import * as Slot from "@rn-primitives/slot";
 import type {
   SlottableTextProps,
   TextRef,
   ViewRef,
 } from "@rn-primitives/types";
+import { createContext, forwardRef, useContext } from "react";
 import {
   Text as RNText,
   type TextProps,
   View,
   type ViewProps,
 } from "react-native";
-import { cn } from "@/lib/utils";
-import { createContext, forwardRef, useContext } from "react";
-import * as Slot from "@rn-primitives/slot";
 
 const TextClassContext = createContext<string | undefined>(undefined);
 
@@ -22,7 +22,7 @@ const Text = forwardRef<TextRef, SlottableTextProps>(
     return (
       <Component
         className={cn(
-          "text-base text-foreground web:select-text",
+          "text-base text-foreground",
           textClass,
           className
         )}
@@ -38,7 +38,7 @@ const Card = forwardRef<ViewRef, ViewProps>(({ className, ...props }, ref) => (
   <View
     ref={ref}
     className={cn(
-      "rounded-lg border border-border bg-card shadow-sm shadow-foreground/10",
+      "rounded-lg border-2 dark:border border-border dark:border-disabled bg-card shadow-sm shadow-foreground/10",
       className
     )}
     {...props}
@@ -110,5 +110,6 @@ export {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
+  CardTitle
 };
+

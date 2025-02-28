@@ -3,8 +3,7 @@ import colors from "tailwindcss/colors";
 const primary = colors.blue[500];
 const primaryDark = colors.blue[800];
 const onPrimary = colors.white;
-const tabTintColorLight = "#E95C1C";
-const tabTintColorDark = "#000";
+const tabTintColor = "#E95C1C";
 
 export const themeColors = {
   itemBg: primary,
@@ -31,18 +30,18 @@ export const themeColors = {
     light: {
       text: "#11181C",
       background: "#fff",
-      tint: tabTintColorLight,
+      tint: tabTintColor,
       icon: "#687076",
       tabIconDefault: "#687076",
-      tabIconSelected: tabTintColorLight,
+      tabIconSelected: tabTintColor,
     },
     dark: {
       text: "#ECEDEE",
       background: "#151718",
-      tint: tabTintColorDark,
+      tint: tabTintColor,
       icon: "#9BA1A6",
       tabIconDefault: "#9BA1A6",
-      tabIconSelected: tabTintColorDark,
+      tabIconSelected: tabTintColor,
     },
   },
 };

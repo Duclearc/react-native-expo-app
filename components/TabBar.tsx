@@ -15,7 +15,7 @@ export const TabBar = ({
   const inactiveColor = themeColors.tabBar[colorScheme].tabIconDefault;
 
   return (
-    <View className="flex-row justify-between align-center bg-white py-3 px-10 mt-5 ios:mb-10 android:mb-5 mx-10 rounded-3xl shadow-md shadow-gray-500/30 dark:bg-bgOnDark bg-bgDefault">
+    <View className="flex-row justify-between align-center bg-white py-3 px-10 mt-5 ios:mb-10 android:mb-5 mx-10 rounded-3xl shadow-md shadow-gray-500/30 dark:shadow-gray-50 dark:bg-bgOnDark bg-bgDefault">
       {state.routes.map((route, index) => {
         const label = descriptors[route.key].options.title ?? route.name;
 
