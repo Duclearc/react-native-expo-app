@@ -24,7 +24,7 @@ interface TabBarButtonProps extends PressableProps {
   color: string;
 }
 
-export function TabBarButton(props: TabBarButtonProps) {
+export const TabBarButton = (props: TabBarButtonProps) => {
   const { isFocused, label, routeName, color } = props;
 
   const scale = useSharedValue(0);
@@ -57,4 +57,4 @@ export function TabBarButton(props: TabBarButtonProps) {
       </Animated.Text>
     </Pressable>
   );
-}
+};

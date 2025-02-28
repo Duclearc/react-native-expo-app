@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { View, SafeAreaView } from "react-native";
 
-export function Wrapper({ children }: { children: ReactNode }) {
+export const Wrapper = ({ children }: { children: ReactNode }) => {
   return (
     <SafeAreaView
       className="dark:bg-bgOnDark bg-bgDefault flex-1"
@@ -12,4 +12,4 @@ export function Wrapper({ children }: { children: ReactNode }) {
       </View>
     </SafeAreaView>
   );
-}
+};

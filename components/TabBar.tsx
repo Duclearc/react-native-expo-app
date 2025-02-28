@@ -4,7 +4,11 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { View } from "react-native";
 
-export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
+export const TabBar = ({
+  state,
+  descriptors,
+  navigation,
+}: BottomTabBarProps) => {
   let { colorScheme } = useColorScheme();
 
   const activeColor = themeColors.tabBar[colorScheme].tabIconSelected;
@@ -50,4 +54,4 @@ export function TabBar({ state, descriptors, navigation }: BottomTabBarProps) {
       })}
     </View>
   );
-}
+};
