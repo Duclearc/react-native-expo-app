@@ -1,4 +1,4 @@
-import { Clock9, Cog, Inbox } from "@/lib/icons";
+import { Cog, Inbox, Star } from "@/lib/icons";
 import { useEffect } from "react";
 import { Pressable, PressableProps } from "react-native";
 import Animated, {
@@ -12,7 +12,7 @@ const iconSize = 26;
 export const icons = {
   index: () => null,
   inbox: (props: any) => <Inbox size={iconSize} {...props} />,
-  today: (props: any) => <Clock9 size={iconSize} {...props} />,
+  highlights: (props: any) => <Star size={iconSize} {...props} />,
   settings: (props: any) => <Cog size={iconSize} {...props} />,
 };
 export type PossibleRoutes = keyof typeof icons;

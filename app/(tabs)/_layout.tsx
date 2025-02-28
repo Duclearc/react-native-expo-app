@@ -20,9 +20,9 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
-          name="today"
+          name="highlights"
           options={{
-            title: "Today",
+            title: "Highlights",
             headerShown: false,
           }}
         />
