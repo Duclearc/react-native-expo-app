@@ -1,28 +1,19 @@
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import { Clock9, Cog, Inbox } from "@/lib/icons";
 import { useEffect } from "react";
 import { Pressable, PressableProps } from "react-native";
 import Animated, {
-    interpolate,
-    useAnimatedStyle,
-    useSharedValue,
-    withSpring,
+  interpolate,
+  useAnimatedStyle,
+  useSharedValue,
+  withSpring,
 } from "react-native-reanimated";
 
+const iconSize = 26;
 export const icons = {
   index: () => null,
-  inbox: (props: any) => (
-    <MaterialCommunityIcons name="inbox" size={26} {...props} />
-  ),
-  today: (props: any) => (
-    <MaterialCommunityIcons
-      name="clock-time-nine-outline"
-      size={26}
-      {...props}
-    />
-  ),
-  settings: (props: any) => (
-    <MaterialCommunityIcons name="cog-outline" size={26} {...props} />
-  ),
+  inbox: (props: any) => <Inbox size={iconSize} {...props} />,
+  today: (props: any) => <Clock9 size={iconSize} {...props} />,
+  settings: (props: any) => <Cog size={iconSize} {...props} />,
 };
 export type PossibleRoutes = keyof typeof icons;
 

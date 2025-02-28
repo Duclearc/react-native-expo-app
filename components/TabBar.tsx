@@ -1,5 +1,5 @@
 import { PossibleRoutes, TabBarButton } from "@/components/TabBarButton";
-import { themeColors } from "@/constants/Colors";
+import { themeColors } from "@/lib/colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { View } from "react-native";
