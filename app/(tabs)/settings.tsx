@@ -1,12 +1,11 @@
 import { Wrapper } from "@/components/Wrapper";
+import { classes } from "@/lib/constants";
 import { Text, View } from "react-native";
 
 export default function Settings() {
   return (
     <Wrapper>
-      <View>
-        <Text>Settings</Text>
-      </View>
+      <Text className={`${classes.title}`}>Settings</Text>
     </Wrapper>
   );
 }

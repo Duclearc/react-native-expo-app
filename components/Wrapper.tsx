@@ -7,7 +7,7 @@ export const Wrapper = ({ children }: { children: ReactNode }) => {
       className="dark:bg-bgOnDark bg-bgDefault flex-1"
       style={{ backgroundColor: "white" }}
     >
-      <View className="flex-1 items-center justify-start w-full px-5 pt-10 android:pt-20 flex">
+      <View className="flex-1 items-center justify-start w-full px-5 pt-10 android:pt-20 flex w-full">
         {children}
       </View>
     </SafeAreaView>

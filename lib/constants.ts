@@ -16,3 +16,5 @@ export const NAV_THEME = {
     text: "hsl(0 0% 98%)", // foreground
   },
 };
+
+export const classes = { title: "text-2xl font-medium mb-3" };
