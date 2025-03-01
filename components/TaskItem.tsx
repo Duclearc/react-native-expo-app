@@ -5,6 +5,7 @@ import { Star } from "@/lib/icons";
 import { useTasksStore } from "@/stores/taskStore";
 import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
+import { IsHighlightButton } from "./IsHighlightButton";
 
 export const TaskItem = ({ task }: { task: Task }) => {
   const [isCompleted, setIsCompleted] = useState(task.completed);
@@ -43,17 +44,10 @@ export const TaskItem = ({ task }: { task: Task }) => {
             {task.todo}
           </Text>
         </View>
-        <Pressable
-          onPress={onIsHighlightChange}
-          className="relative right-5 p-3"
-        >
-          <Star
-            className={`${
-              isHighlight ? "text-accent" : "text-disabled light:opacity-50"
-            }`}
-            fill={isHighlight ? "#FF531CBB" : "#00000000"}
-          />
-        </Pressable>
+        <IsHighlightButton
+          isHighlight={isHighlight}
+          onIsHighlightChange={onIsHighlightChange}
+        />
       </View>
     </Card>
   );

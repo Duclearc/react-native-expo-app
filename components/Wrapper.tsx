@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { View, SafeAreaView } from "react-native";
+import { SafeAreaView, View } from "react-native";
 
 export const Wrapper = ({ children }: { children: ReactNode }) => {
   return (

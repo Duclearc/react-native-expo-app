@@ -1,8 +1,11 @@
 import { TabBar } from "@/components/TabBar";
-import { Tabs } from "expo-router";
+import { useUserStore } from "@/stores/userStore";
+import { Redirect, Tabs } from "expo-router";
 import { View } from "react-native";
 
 export default function TabLayout() {
+  const userStore = useUserStore();
+  if (!userStore.id) return <Redirect href="/login" />;
   return (
     <View className="dark:bg-bgOnDark bg-bgDefault flex-1">
       <Tabs tabBar={(props) => <TabBar {...props} />}>

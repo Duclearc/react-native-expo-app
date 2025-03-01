@@ -1,38 +1,8 @@
+import { Text } from "@/components/Text";
 import { cn } from "@/lib/utils";
-import * as Slot from "@rn-primitives/slot";
-import type {
-  SlottableTextProps,
-  TextRef,
-  ViewRef,
-} from "@rn-primitives/types";
-import { createContext, forwardRef, useContext } from "react";
-import {
-  Text as RNText,
-  type TextProps,
-  View,
-  type ViewProps,
-} from "react-native";
-
-const TextClassContext = createContext<string | undefined>(undefined);
-
-const Text = forwardRef<TextRef, SlottableTextProps>(
-  ({ className, asChild = false, ...props }, ref) => {
-    const textClass = useContext(TextClassContext);
-    const Component = asChild ? Slot.Text : RNText;
-    return (
-      <Component
-        className={cn(
-          "text-base text-foreground",
-          textClass,
-          className
-        )}
-        ref={ref}
-        {...props}
-      />
-    );
-  }
-);
-Text.displayName = "Text";
+import type { TextRef, ViewRef } from "@rn-primitives/types";
+import { forwardRef } from "react";
+import { type TextProps, View, type ViewProps } from "react-native";
 
 const Card = forwardRef<ViewRef, ViewProps>(({ className, ...props }, ref) => (
   <View
@@ -110,6 +80,5 @@ export {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle
+  CardTitle,
 };
-

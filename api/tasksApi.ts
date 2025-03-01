@@ -1,5 +1,7 @@
 // using https://dummyjson.com/docs/todos
 
+import { toast } from "sonner-native";
+
 export interface Task {
   userId: number;
   id: number;
@@ -25,26 +27,32 @@ export const createTask = async (task: Task): Promise<Task | undefined> => {
     console.log("tasksApi/createTask: ", jsonResponse);
     return jsonResponse;
   } catch (error) {
-    console.error("failed to create task");
+    toast.error("failed to create task");
+    console.error(error);
   }
 };
 
 export const getAllTasks = async (
-  userId?: number
+  userId: number
 ): Promise<Task[] | undefined> => {
+  if (!userId) return [];
   try {
     const urlPath = userId !== undefined ? `/user/${userId}` : "";
     const response: Response = await fetch(
       `https://dummyjson.com/todos${urlPath}`
     );
     const jsonResponse: GetAllResponse = await response.json();
-    console.log("tasksApi/getAllTasks: ", jsonResponse);
-    return jsonResponse.todos.map((todo) => ({
+    console.log("tasksApi/getAllTasks: ", {
+      ...jsonResponse,
+      todos: jsonResponse.todos[0],
+    });
+    return jsonResponse.todos.map((todo, i) => ({
       ...todo,
-      isHighlight: todo.id % 5 === 0,
+      isHighlight: !!(i % 2), // just some random way to make some of these a highlight
     }));
   } catch (error) {
-    console.error("failed to get all tasks");
+    toast.error("failed to get all tasks");
+    console.error(error);
   }
 };
 
@@ -55,7 +63,8 @@ export const getSingleTask = async (id: number): Promise<Task | undefined> => {
     console.log("tasksApi/getSingleTask: ", jsonResponse);
     return jsonResponse;
   } catch (error) {
-    console.error("task not found");
+    toast.error("task not found");
+    console.error(error);
   }
 };
 
@@ -77,6 +86,7 @@ export const updateTask = async (task: Task): Promise<Task | undefined> => {
     console.log("tasksApi/updateTask: ", jsonResponse);
     return jsonResponse;
   } catch (error) {
-    console.error("failed to update");
+    toast.error("failed to update");
+    console.error(error);
   }
 };

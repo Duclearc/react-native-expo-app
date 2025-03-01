@@ -1,11 +1,12 @@
-import { useColorScheme } from "@/hooks/useColorScheme";
 import { Text, TextProps } from "react-native";
 
-export const TitleText = (props: TextProps) => {
-  const { isDarkColorScheme } = useColorScheme();
+export const TitleText = ({ className, children, ...props }: TextProps) => {
   return (
-    <Text className="text-2xl font-medium mb-3 text-textDefault dark:text-textOnDark">
-      {props.children}
+    <Text
+      className={`text-3xl font-medium text-textDefault dark:text-textOnDark ${className}`}
+      {...props}
+    >
+      {children}
     </Text>
   );
 };

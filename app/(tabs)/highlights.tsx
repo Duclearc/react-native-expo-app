@@ -1,5 +1,5 @@
 import { TaskList } from "@/components/TaskList";
-import { TitleText } from "@/components/TitleText";
+import { TaskSectionHeader } from "@/components/TaskSectionHeader";
 import { Wrapper } from "@/components/Wrapper";
 import { useTasksStore } from "@/stores/taskStore";
 
@@ -8,7 +8,7 @@ export default function Highlights() {
 
   return (
     <Wrapper>
-      <TitleText>Highlight</TitleText>
+      <TaskSectionHeader title={"Highlights"} />
       <TaskList tasks={tasks.filter((task) => task.isHighlight)} />
     </Wrapper>
   );

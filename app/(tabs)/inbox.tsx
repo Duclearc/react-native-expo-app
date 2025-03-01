@@ -1,5 +1,5 @@
 import { TaskList } from "@/components/TaskList";
-import { TitleText } from "@/components/TitleText";
+import { TaskSectionHeader } from "@/components/TaskSectionHeader";
 import { Wrapper } from "@/components/Wrapper";
 import { useTasksStore } from "@/stores/taskStore";
 
@@ -8,8 +8,8 @@ export default function Inbox() {
 
   return (
     <Wrapper>
-      <TitleText>Inbox</TitleText>
-      <TaskList tasks={tasks} />
+      <TaskSectionHeader title={"Inbox"} />
+      <TaskList tasks={tasks ?? []} />
     </Wrapper>
   );
 }

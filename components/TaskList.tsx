@@ -3,6 +3,7 @@ import { TaskItem } from "@/components/TaskItem";
 import { useTasksStore } from "@/stores/taskStore";
 import { useState } from "react";
 import { FlatList, View } from "react-native";
+import { toast } from "sonner-native";
 
 export const TaskList = ({ tasks }: { tasks: Task[] }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -12,7 +13,8 @@ export const TaskList = ({ tasks }: { tasks: Task[] }) => {
     try {
       await refreshTasks();
     } catch (error) {
-      console.error("couldn't refresh");
+      toast.error("couldn't refresh");
+      console.error(error);
     } finally {
       setIsLoading(false);
     }

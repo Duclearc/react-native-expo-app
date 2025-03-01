@@ -1,20 +1,20 @@
 import "@/global.css";
 import { useColorScheme } from "@/hooks/useColorScheme";
-import { Stack } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-import "react-native-reanimated";
+import { NAV_THEME } from "@/lib/constants";
 import {
+  DarkTheme,
+  DefaultTheme,
   Theme,
   ThemeProvider,
-  DefaultTheme,
-  DarkTheme,
 } from "@react-navigation/native";
+import { PortalHost } from "@rn-primitives/portal";
+import { Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
-import { Platform } from "react-native";
-import { NAV_THEME } from "@/lib/constants";
-import "@/global.css";
-import { useRef, useState, useEffect, useLayoutEffect } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import "react-native-reanimated";
+import { Toaster } from "sonner-native";
 
 const LIGHT_THEME: Theme = {
   ...DefaultTheme,
@@ -56,16 +56,24 @@ export default function RootLayout() {
             name="(tabs)"
             options={{ headerShown: false, animation: "slide_from_right" }}
           />
+          <Stack.Screen
+            name="login"
+            options={{ headerShown: false, animation: "slide_from_left" }}
+          />
         </Stack>
+        <Toaster
+          position="bottom-center"
+          theme="dark"
+          closeButton
+          style={{ bottom: 60 }}
+        />
+        <PortalHost />
       </ThemeProvider>
     </GestureHandlerRootView>
   );
 }
 
-const useIsomorphicLayoutEffect =
-  Platform.OS === "web" && typeof window === "undefined"
-    ? useEffect
-    : useLayoutEffect;
+const useIsomorphicLayoutEffect = useLayoutEffect;
 
 export {
   // Catch any errors thrown by the Layout component.
